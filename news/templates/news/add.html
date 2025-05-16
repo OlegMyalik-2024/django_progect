@@ -1,0 +1,26 @@
+{% extends "main/pattern.html" %}
+
+{% load static %}
+
+{% comment %} Передача параметра {{title}} в тэг из функции  {% endcomment %}
+{% block 'title' %}<title>Новости</title>{% endblock %}
+
+{% block 'content' %}
+{% comment %} Подключение css файла {% endcomment %}
+<link rel="stylesheet" href="{% static 'news/css/add.css' %}">
+
+    <section id="add_news">
+    <h1>Добавление новости</h1>
+    <form method="post" id="post">
+         {% csrf_token %}
+         {{ form.title }}<br>
+         {{ form.full_text }}<br>
+         <p class="p1">{{ error }}</p><br>
+         <div id="butt">
+         <button class="btn btn-success" type="submit">Добавить новость</button>
+         </div>
+      </form>
+    <a href="{% url 'news_home' %}"><button id="but">Назад</button></a><br>
+    </section>
+    
+{% endblock %}

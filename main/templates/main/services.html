@@ -1,0 +1,63 @@
+{% extends "main/pattern.html" %}
+
+{% comment %} Подключение (импорт) папки static и всего ее содержимого {% endcomment %}
+{% load static %}
+{% comment %} Передача параметра {{title}} в тэг из функции  {% endcomment %}
+{% block 'title' %}<title>{{title}}</title>{% endblock %}
+
+{% block 'content' %}
+{% comment %} Подключение css файла {% endcomment %}
+<link rel="stylesheet" href="{% static 'main/css/services.css' %}">
+<link rel="stylesheet" href="{% static 'main/css/modal_window.css' %}">
+
+<section id="services">
+    <h1 class ="hea">{{header}}</h1>
+    <p id="text">{{text}}</p>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="user">Для получения доступа пройдите авторизацию или зарегистрируйтесь!</span>
+        </div>
+    </div>
+    <span>
+    <a href="https://html5beginner.github.io/" onclick="checkAuth(event)">
+        <div>
+            <p class="text">{{headers.h1}}</p>
+            <img src="{% static 'main/img/html.png' %}" alt="" class="background-image1">
+        </div>
+    </a>
+    <a href="https://open-source-peace.github.io/w3schoolsrus/css/index.html#gsc.tab=0" onclick="checkAuth(event)">
+        <div>
+            <p class="text">{{headers.h2}}</p>
+            <img src="{% static 'main/img/css.png' %}" alt="" class="background-image1">
+        </div>
+    </a>
+    <a href="https://learn.javascript.ru/" onclick="checkAuth(event)">
+        <div>
+            <p class="text">{{headers.h3}}</p>
+            <img src="{% static 'main/img/js.png' %}" alt="" class="background-image1">
+        </div>
+    </a>
+    </span>
+    <a href="{% url 'index' %}"><button id="but">Назад</button></a>
+</section>
+<script>
+    function checkAuth(event) {
+        // Проверяем, аутентифицирован ли пользователь
+        {% if not user.is_authenticated %}
+            event.preventDefault(); // Предотвращаем переход по ссылке
+            var modal = document.getElementById("myModal");
+            modal.style.display = "block"; // Показываем модальное окно
+
+            // Функция для скрытия модального окна
+            function hideModal() {
+                modal.style.display = "none";
+                modal.removeEventListener('click', hideModal); // Удаляем обработчик
+            }
+
+            // Добавляем обработчик клика на модальное окно
+            modal.addEventListener('click', hideModal);
+
+        {% endif %}
+    }
+</script>
+{% endblock %}

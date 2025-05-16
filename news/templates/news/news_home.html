@@ -1,0 +1,54 @@
+{% extends "main/pattern.html" %}
+
+{% load static %}
+
+{% comment %} Передача параметра {{title}} в тэг из функции  {% endcomment %}
+{% block 'title' %}<title>Новости</title>{% endblock %}
+
+{% block 'content' %}
+{% comment %} Подключение css файла {% endcomment %}
+<link rel="stylesheet" href="{% static 'news/css/news_home.css' %}">
+<link rel="stylesheet" href="{% static 'main/css/modal_window.css' %}">
+
+    <section id="news">
+        <h1>Новости</h1>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="user">Для получения доступа пройдите авторизацию или зарегистрируйтесь!</span>
+            </div>
+        </div>
+        {% if news %}
+        {% for el in news %}
+            <div class="alert alert-warning" onclick="checkAuth(event)">
+                <a href="{{ el.full_text }}"><h3>{{ el.title }}</h3></a>
+            </div>
+        {% endfor %}
+        {% else %}
+            <p class="p1">У Вас нет записей!</p>
+        {% endif %}
+        
+        <a href="{% url 'add' %}"><button id="but" onclick="checkAuth(event)">Добавить новость</button></a>
+        <a href="{% url 'index' %}"><button id="but">Назад</button></a><br>
+        </section>
+
+        <script>
+    function checkAuth(event) {
+        // Проверяем, аутентифицирован ли пользователь
+        {% if not user.is_authenticated %}
+            event.preventDefault(); // Предотвращаем переход по ссылке
+            var modal = document.getElementById("myModal");
+            modal.style.display = "block"; // Показываем модальное окно
+
+            // Функция для скрытия модального окна
+            function hideModal() {
+                modal.style.display = "none";
+                modal.removeEventListener('click', hideModal); // Удаляем обработчик
+            }
+
+            // Добавляем обработчик клика на модальное окно
+            modal.addEventListener('click', hideModal);
+
+        {% endif %}
+      }
+  </script>
+{% endblock %}

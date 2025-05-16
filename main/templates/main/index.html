@@ -1,0 +1,42 @@
+{% extends "main/pattern.html" %}
+{% comment %} Подключение (импорт) папки static и всего ее содержимого {% endcomment %}
+{% load static %}
+{% comment %} Передача параметра {{title}} в тэг из функции  {% endcomment %}
+{% block 'title' %}<title>{{title}}</title>{% endblock %}
+
+{% block 'content' %}
+
+{% comment %} Подключение css файла {% endcomment %}
+<link rel="stylesheet" href="{% static 'main/css/index.css' %}">
+
+<section class="welcome-section">
+    <h1 class="heading">{{header}}</h1>
+    <img src="{% static 'main/img/it1.jpg' %}" alt="" class="background-image">
+</section >
+
+<section class="about-section">
+    <h3 class="heading1">{{header1}}</h3>
+    <img src="{% static 'main/img/html_css_js.jpg' %}" alt="" class="background-image1">
+    <p class="description">{{ text.t1 }}</p>
+    <a href="{% url 'about' %}"><button class="more-info">Подробнее</button></a>
+</section>
+
+<section id="features">
+    <h2 class="heading2">{{header2}}</h2>
+    <div class="feature">
+        <h3>{{ title1.t1 }}</h3>
+        <img src="{% static 'main/img/garantiya.png' %}" alt="" class="background-image2">
+        <p class="text">{{ text.t2 }}</p>
+    </div>
+    <div class="feature">
+        <h3>{{ title1.t2 }}</h3>
+        <img src="{% static 'main/img/img.png' %}" alt="" class="background-image2">
+        <p class="text">{{ text.t3 }}</p>
+    </div>
+    <div class="feature">
+        <h3>{{ title1.t3 }}</h3>
+        <img src="{% static 'main/img/money.png' %}" alt="" class="background-image2">
+        <p class="text">{{ text.t4 }}</p>
+    </div>
+</section>
+{% endblock %}

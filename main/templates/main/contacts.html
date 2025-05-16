@@ -1,0 +1,33 @@
+{% extends "main/pattern.html" %}
+
+{% load static %}
+{% comment %} Передача параметра {{title}} в тэг из функции  {% endcomment %}
+{% block 'title' %}<title>{{title}}</title>{% endblock %}
+
+{% block 'content' %}
+
+{% comment %} Подключение css файла {% endcomment %}
+<link rel="stylesheet" href="{% static 'main/css/contacts.css' %}">
+
+{% comment %} Подключение yandex-api {% endcomment %}
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"type="text/javascript"></script>
+
+{% comment %} Подключение иконок Bootstrap {% endcomment %}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+
+<section id="contacts">
+    <h1 class="head">{{header}}</h1>
+    <p id="pas1"><i class="fas fa-home"></i>{{text.t1}}</p>
+    <p id="pas1"><i class="fas fa-phone"></i>{{text.t2}}</p>
+    <p id="pas1"><i class="fas fa-pen"></i>{{text.t3}}</p>
+</section>
+<section id="contacts">
+    <h2 class="head1">{{header1}}</h2>
+    <div id="yandexmap" style="width: 500px; height: 500px"></div>
+    <a href="{% url 'index' %}"><button id="but">Назад</button></a>
+</section>
+
+{% comment %} Подключение JavaScript файла {% endcomment %}
+<script src="{% static 'main/js/contacts.js' %}"></script>
+
+{% endblock %}

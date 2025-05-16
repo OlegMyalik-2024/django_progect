@@ -1,0 +1,155 @@
+.welcome-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.background-image {
+  width: 100%;
+  height: 50vh; 
+  object-fit: cover; 
+}
+
+.heading {
+  width: 80%;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(253, 253, 253);
+  font-size: 4rem;
+  text-align: center;
+  z-index: 1;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: 'Times New Roman', Times, serif Black;
+  text-shadow:
+    -2px -2px 0 #000,  
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+    2px 2px 0 #000;
+}
+
+.welcome-section {
+  margin-top: 20px;
+  background-color: #A9A9A9; 
+  padding: 20px; 
+  border-radius: 5px; 
+  text-align: center; 
+  margin-bottom: 20px; 
+}
+  
+.about-section {
+  background-color: #A9A9A9; 
+  padding: 20px; 
+  border-radius: 5px; 
+  text-align: center; 
+  margin-bottom: 20px; 
+}
+
+.heading1{
+  text-align: center;
+  font-size: 3rem;
+  font-family: cursive;
+  font-weight: bold;
+  text-shadow:
+    -2px -2px 0 yellow,  
+    2px -2px 0 yellow,
+    -2px 2px 0 yellow,
+    2px 2px 0 yellow;
+}
+
+.background-image1{
+  display: flex; 
+  align-items: center; 
+  width: 400px;
+  height: 250px;
+  border-style: solid;
+  float: left;
+}
+
+.background-image1:hover{
+  transform: scale(1.05);
+}
+
+.description{
+  display: flex; 
+  align-items:normal;
+  font-style: italic;
+  font-size: 30px;
+  width: 50%;
+  margin-left: auto;
+  text-align: justify;
+  margin-right: 40px;
+}
+
+.more-info{
+  background-color: aqua;
+  align-items: center;
+  margin-top: 100px;
+  border-radius: 10px;
+  font-size:larger;
+  font-weight: bold;
+  color: #008000;
+}
+
+.more-info:hover{
+  background-color: yellowgreen;
+  transform: scale(1.05);
+  color: red;
+}
+
+#features {
+  display: flex;
+  flex-direction: column; 
+  background-color: #A9A9A9; 
+  padding: 20px; 
+  border-radius: 5px; 
+  text-align: center; 
+  margin-bottom: 20px; 
+  justify-content: flex-start; 
+  align-items: center; 
+}
+
+.heading2{
+  text-align: center;
+  font-size: 3rem;
+  font-family: cursive;
+  font-weight: bold;
+  text-align: center;
+  margin: 0 auto 20px;
+  text-shadow:
+    -2px -2px 0 yellow,  
+    2px -2px 0 yellow,
+    -2px 2px 0 yellow,
+    2px 2px 0 yellow;
+}
+
+.background-image2{ 
+  width: 100px;
+  height: 100px;
+}
+
+h3{
+  font-family:'Lucida Sans';
+  color: red;
+  font-weight: bold;
+}
+
+.text{
+  text-align: justify;
+  font-style: italic;
+  font-size: 30px;
+}
+
+.feature{
+  background-color: rgb(204, 221, 169);
+  width: 80%; 
+  padding: 20px;
+  border: solid;
+  margin: 5% auto; 
+}
+
+.feature:hover{
+  background-color: aquamarine;
+  transform: scale(1.05);
+}

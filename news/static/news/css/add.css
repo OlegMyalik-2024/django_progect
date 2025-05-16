@@ -1,0 +1,63 @@
+form{
+    margin-left: 32%;
+    width: 500px;
+    margin-top: 50px;
+}
+
+h1{
+    text-align: center;
+    font-size: 60px;
+    margin-top: 20px;
+    text-shadow:
+    -2px -2px 0 red,  
+    2px -2px 0 yellow,
+    -2px 2px 0 yellow,
+    2px 2px 0 yellow;
+}
+
+#butt{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#but{
+  background-color: aqua;
+  margin: 60px; 
+  border-radius: 10px;
+  font-size:larger;
+  font-weight: bold;
+  color: #008000;
+  width: 200px;
+  margin: 60px auto;
+  display:block; 
+}
+
+#but:hover{
+  background-color: yellowgreen;
+  transform: scale(1.05);
+  color: red;
+}
+
+a{
+    text-decoration: none;
+}
+
+.p1{
+    text-align: center;
+    margin-top: 30px;
+    font-weight: bold;
+    font-size: 20px;
+    color: red;
+}
+
+#add_news{
+    margin-top: 20px;
+    background-color: rgb(201, 201, 223);
+    margin-bottom: 20px;
+}
+
+#post{
+    border: solid 3px black;
+    padding: 20px;
+    background-color: bisque;
+}

@@ -1,0 +1,22 @@
+{% extends "main/pattern.html" %}
+
+{% load static %}
+{% comment %} Передача параметра {{title}} в тэг из функции  {% endcomment %}
+{% block 'title' %}<title>{{title}}</title>{% endblock %}
+
+{% block 'content' %}
+{% comment %} Подключение css файла {% endcomment %}
+<link rel="stylesheet" href="{% static 'main/css/about.css' %}">
+
+<section class="about">
+    <h1 class="hea">{{header}}</h1>
+    <img src="{% static 'main/img/globe.gif' %}" alt="" class="background-image1">
+    <p class="time">Время: <time id="currentTime"></time></p>
+    <p class="text">{{text}}</p>
+    <a href="{% url 'index' %}"><button id="but">Назад</button></a>
+</section>
+
+{% comment %} Подключение JavaScript файла {% endcomment %}
+<script src="{% static 'main/js/about.js' %}"></script>
+
+{% endblock %}
