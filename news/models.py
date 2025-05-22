@@ -8,6 +8,10 @@ class Articles(models.Model):
     # Вывод новостей в строковом представлении
     def __str__(self):
         return self.title
+    #Переадресация пользователя после обновления новости
+    def get_absolute_url(self):
+        return f'/news/{self.id}'
+    
     
     # Задать название таблицы
     class Meta:

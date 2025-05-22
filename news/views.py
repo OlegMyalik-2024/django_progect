@@ -15,9 +15,28 @@ from django.views.generic.base import View
 from django.contrib.auth import logout
 # Для смены пароля - форма
 from django.contrib.auth.forms import PasswordChangeForm
-
+#Создание динамически изменяемых страниц при помощи встроенных классов
+from django.views.generic import DetailView, UpdateView, DeleteView
 # Базовый URL приложения, главной страницы - часто нужен при указании путей переадресации
 app_url = "/"
+
+#Создание динамических страниц на основе представления таблицы в БД
+class NewsDetailView(DetailView):
+    model = Articles
+    template_name = 'news/details_view.html'
+    context_object_name = 'article'
+
+#Представление на основе таблицы БД для обновления записей
+class NewsUpdateView(UpdateView):
+    model = Articles
+    template_name = 'news/update.html'
+    form_class = ArticlesForm
+    
+#Представление на основе таблицы БД для удаления записей
+class NewsDeleteView(DeleteView):
+    model = Articles
+    template_name = 'news/delete.html'
+    success_url = '/news/'
 
 # Представление для регистрации
 class RegisterFormView(FormView):
@@ -83,7 +102,7 @@ class PasswordChangeView(FormView):
 # Методы
 def news_home(request):
     # Метод вывода определенного количества записей из таблицы БД
-    news = Articles.objects.order_by('-title')[:5]
+    #news = Articles.objects.order_by('-title')[:5]
     # Метод вывода всех записей из таблицы БД
     news = Articles.objects.all()
     return render(request, 'news/news_home.html', {'news': news})

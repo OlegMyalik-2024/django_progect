@@ -21,6 +21,7 @@
         {% for el in news %}
             <div class="alert alert-warning" onclick="checkAuth(event)">
                 <a href="{{ el.full_text }}"><h3>{{ el.title }}</h3></a>
+                <a href="{% url 'detail' el.id %}" class = "btn btn-warning">Редактировать</a>
             </div>
         {% endfor %}
         {% else %}

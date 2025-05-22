@@ -1,0 +1,23 @@
+{% extends "main/pattern.html" %}
+
+{% load static %}
+
+{% comment %} Передача параметра {{title}} в тэг из функции  {% endcomment %}
+{% block 'title' %}<title>{{article.title}}</title>{% endblock %}
+
+{% block 'content' %}
+{% comment %} Подключение css файла {% endcomment %}
+<link rel="stylesheet" href="{% static 'news/css/news_home.css' %}">
+<link rel="stylesheet" href="{% static 'main/css/modal_window.css' %}">
+<link rel="stylesheet" href="{% static 'news/css/detail_view.css' %}">
+
+    <section id="news">
+        <h1>{{article.title}}</h1><br>
+        <p id="title">Ссылка на новость</p>
+        <p id="link">{{article.full_text}}</p>
+        <a href="{% url 'update_news' article.pk %}"><button id="but" onclick="checkAuth(event)">Редактировать новость</button></a>
+        <a href="{% url 'delete_news' article.pk %}"><button id="but" onclick="checkAuth(event)">Удалить новость</button></a>
+        <a href="{% url 'news_home' %}"><button id="but">Назад</button></a><br>
+    </section>
+
+{% endblock %}
